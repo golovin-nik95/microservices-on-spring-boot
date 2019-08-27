@@ -1,0 +1,7 @@
+turbine:
+  appConfig: product-service
+  cluster-name-expression: new String("default")
+  InstanceMonitor:
+    eventStream:
+      skipLineLogic:
+        enabled: false

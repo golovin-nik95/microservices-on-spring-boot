@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.1.7.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE' apply false
+    id 'io.franzbecker.gradle-lombok' version '3.1.0' apply false
+}
+
+ext {
+    springBootVersion = '2.1.7.RELEASE'
+    springCloudVersion = 'Greenwich.SR2'
+    lombokVersion = '1.18.8'
+    h2Version = '1.4.199'
+    zipkinVersion = '2.12.9'
+}
+
+allprojects {
+    group 'com.griddynamics'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'io.franzbecker.gradle-lombok'
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+        dependencies {
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "com.h2database:h2:${h2Version}"
+            dependency "io.zipkin.java:zipkin-server:${zipkinVersion}"
+            dependency "io.zipkin.java:zipkin-autoconfigure-ui:${zipkinVersion}"
+        }
+    }
+}
