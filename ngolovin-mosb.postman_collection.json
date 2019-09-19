@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "74ed9f18-7940-4403-8e67-f9fc5e7d7fa4",
+		"name": "ngolovin/mosb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "catalog-service",
+			"item": [
+				{
+					"name": "catalogItemByUniqId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8181/v1/api/catalogs/b6c0b6bea69c722939585baeac73c13d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"v1",
+								"api",
+								"catalogs",
+								"b6c0b6bea69c722939585baeac73c13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "catalogItemsBySku",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8181/v1/api/catalogs?sku=pp5006380337",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"v1",
+								"api",
+								"catalogs"
+							],
+							"query": [
+								{
+									"key": "sku",
+									"value": "pp5006380337"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventory-service",
+			"item": [
+				{
+					"name": "inventoryItemsByUniqIds",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"b6c0b6bea69c722939585baeac73c13d\", \"93e5272c51d8cce02597e3ce67b7ad0a\", \"013e320f2f2ec0cf5b3ff5418d688528\"]"
+						},
+						"url": {
+							"raw": "http://localhost:8282/v1/api/inventories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8282",
+							"path": [
+								"v1",
+								"api",
+								"inventories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product-service",
+			"item": [
+				{
+					"name": "productByUniqId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/v1/api/products/b6c0b6bea69c722939585baeac73c13d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"v1",
+								"api",
+								"products",
+								"b6c0b6bea69c722939585baeac73c13d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productsBySku",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/v1/api/products?sku=pp5006380337",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"v1",
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "sku",
+									"value": "pp5006380337"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
